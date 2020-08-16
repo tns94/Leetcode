@@ -29,35 +29,22 @@ public class Binary_Tree_Level_Order_Traversal_II {
         List<List<Integer>> answer=new ArrayList<>();
         if(root==null)
             return answer;
-        Map<Integer,List<Integer>> map=new TreeMap<>(Comparator.reverseOrder());
-        List<Integer> firstLevel=new ArrayList<>();
-        firstLevel.add(root.val);
-        map.put(0,firstLevel);
-        traverse(root,map,1);
-        for(Map.Entry<Integer, List<Integer>> entry:map.entrySet()){
-            answer.add(entry.getValue());
-        }
+        traverse(root,answer,0);
         return answer;
     }
 
-    static void traverse(TreeNode node,Map<Integer,List<Integer>> map,int level)
+    static void traverse(TreeNode node,List<List<Integer>> list,int level)
     {
         if(node==null)
             return;
 
-        if(node.left!=null)
+        if(level==list.size())
         {
-            if(!map.containsKey(level))
-                map.put(level,new ArrayList<>());
-            traverse(node.left,map,level+1);
-            map.get(level).add(node.left.val);
+            list.add(0,new ArrayList<>());
         }
-        if(node.right!=null)
-        {
-            if(!map.containsKey(level))
-                map.put(level,new ArrayList<>());
-            traverse(node.right,map,level+1);
-            map.get(level).add(node.right.val);
-        }
+        list.get(list.size()-level-1).add(node.val);
+        traverse(node.left,list,level+1);
+        traverse(node.right,list,level+1);
     }
+
 }
