@@ -3,7 +3,7 @@ package october;
 https://leetcode.com/explore/challenge/card/october-leetcoding-challenge/560/week-2-october-8th-october-14th/3488/
  */
 public class BinarySearch {
-    public int search(int[] nums, int target) {
+    public static int search(int[] nums, int target) {
         int i=0,j=nums.length-1;
         while (i<=j)
         {
@@ -16,5 +16,9 @@ public class BinarySearch {
                 return mid;
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        search(new int[]{1,10,15,17,23},16);
     }
 }
