@@ -1,4 +1,4 @@
-package january21;
+package january2021;
 /*
 https://leetcode.com/explore/featured/card/january-leetcoding-challenge-2021/582/week-4-january-22nd-january-28th/3619/
  */
